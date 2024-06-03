@@ -1,5 +1,5 @@
 {
-  "name": "gh-triage",
+  "name": "git-triage",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -17,6 +17,6 @@
     "wrangler": "^3.0.0"
   },
   "dependencies": {
-    "@zip.js/zip.js": "^2.7.45"
+    "@zip.js/zip.js": "2.7.45"
   }
 }
