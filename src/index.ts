@@ -191,9 +191,9 @@ class Event {
 
 		const user_created = Date.parse(userrspJson['created_at'])
 
-		if (user_created < cutoff) {
-			throw new VerdictError(`Users older than 30 days are not processed as this does not match known TTPs. User created at ${userrspJson['created_at']}`)
-		}
+		// if (user_created < cutoff) {
+		// 	throw new VerdictError(`Users older than 30 days are not processed as this does not match known TTPs. User created at ${userrspJson['created_at']}`)
+		// }
 
 		this.user_created = new Date(user_created).toISOString()
 
@@ -285,7 +285,8 @@ class Event {
 	 */
 	async retrieveGHObject(item: FileItem): Promise<RepoContentItem> {
 		let first_content_name, first_content_sha256, zip_sha256
-		if (item.size < 350000 && /.*\.(zip|tar)$/.test(item.name)) {
+		// console.log(item.size, item.name)
+		if (item.size < 3500000 && /.*\.(zip|tar)$/.test(item.name)) {
 			// console.log(`retrieiving ${item.name}`)
 			const resp = await fetch(item.download_url)
 
