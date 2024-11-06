@@ -287,8 +287,8 @@ class Event {
 		let first_content_name, first_content_sha256, zip_sha256
 		// console.log(item.size, item.name)
 		if (item.size < 3500000 && /.*\.(zip|tar)$/.test(item.name)) {
-			// console.log(`retrieiving ${item.name}`)
-			const resp = await fetch(item.download_url)
+			// console.log(`retrieiving ${item.download_url}`)
+			const resp = await fetch(new URL(item.download_url))
 
 			if (!resp.ok) {
 				throw new Error(`error retrieving ${item.name}: ${await resp.text()}`)					
